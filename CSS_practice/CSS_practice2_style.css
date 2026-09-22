@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #bbb;
+}
+
+/* Header */
+header {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+header p {
+  margin: 0;
+  font-size: 13px;
+  color: #555;
+}
+
+/* Navigation bar */
+nav {
+  background-color: #333;
+}
+
+nav a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-decoration: none;
+  padding: 14px 16px;
+}
+
+nav a:hover {
+  background-color: #575757;
+}
+
+/* Three-column layout: aside / section / aside */
+body {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-areas:
+    "header header header"
+    "nav    nav    nav"
+    "aside1 main   aside2";
+}
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+}
+
+aside:first-of-type {
+  grid-area: aside1;
+  padding: 15px;
+}
+
+section {
+  grid-area: main;
+  padding: 15px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+aside:last-of-type {
+  grid-area: aside2;
+  padding: 15px;
+}
+
+aside h2,
+section h2 {
+  margin-top: 0;
+}
+
+/* Responsive layout: stack columns on narrow screens */
+@media screen and (max-width: 700px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "nav"
+      "aside1"
+      "main"
+      "aside2";
+  }
+}
